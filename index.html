@@ -368,9 +368,9 @@
     document.getElementById('title').textContent = `${DATA.bride} & ${DATA.groom}`;
 
     // Kına metin ve bilgiler
-    //document.getElementById('dateDisplayKina').textContent = formatDateTr(DATA.dateKina);
-    //document.getElementById('kinaVenueDisplay').textContent = DATA.kinaVenue;
-    //document.getElementById('kinaAddressDisplay').textContent = DATA.kinaAddress;
+    document.getElementById('dateDisplayKina').textContent = formatDateTr(DATA.dateKina);
+    document.getElementById('kinaVenueDisplay').textContent = DATA.kinaVenue;
+    document.getElementById('kinaAddressDisplay').textContent = DATA.kinaAddress;
 
     // Nikah metin ve bilgiler
     document.getElementById('dateDisplayNikah').textContent = formatDateTr(DATA.dateNikah);
@@ -386,11 +386,11 @@
     // İstersen buraya eklenebilir, şimdilik kaldırdım, gerekirse ayrı ayrı yapılabilir.
 
     // Kına Haritada aç 
-    //document.getElementById('kinaMapBtn').addEventListener('click', () => {
-      //const q = encodeURIComponent(DATA.kinaAddress + " " + DATA.kinaVenue);
-      //const url = `https://l.instagram.com/?u=https%3A%2F%2Fmaps.app.goo.gl%2FxMVHa46tF2Xos9XB7%3Fg_st%3Dcom.google.maps.preview.copy%26fbclid%3DPAZXh0bgNhZW0CMTEAAae9mA44FhdhH4LN5sdHjLkMkkRGu5HNeTQ8cyvMq7ks63S4aY2JV-OUCpSlQQ_aem_4EOR7nAB_z-Nq4jg2_oMXQ&e=AT26dWvw97RWGxuyEE5wJE-6n0GE3Qu0XFh5zk9kagHeuNXetON7NWjmgrSzX39I5FYLgGggbLFx4usUGN8FHvtLKbTrXMefG59egbQ`; // değiştirilebilir
-      //window.open(url, '_blank');
-    //});
+    document.getElementById('kinaMapBtn').addEventListener('click', () => {
+      const q = encodeURIComponent(DATA.kinaAddress + " " + DATA.kinaVenue);
+      const url = `https://l.instagram.com/?u=https%3A%2F%2Fmaps.app.goo.gl%2FxMVHa46tF2Xos9XB7%3Fg_st%3Dcom.google.maps.preview.copy%26fbclid%3DPAZXh0bgNhZW0CMTEAAae9mA44FhdhH4LN5sdHjLkMkkRGu5HNeTQ8cyvMq7ks63S4aY2JV-OUCpSlQQ_aem_4EOR7nAB_z-Nq4jg2_oMXQ&e=AT26dWvw97RWGxuyEE5wJE-6n0GE3Qu0XFh5zk9kagHeuNXetON7NWjmgrSzX39I5FYLgGggbLFx4usUGN8FHvtLKbTrXMefG59egbQ`; // değiştirilebilir
+      window.open(url, '_blank');
+    });
 
     // Nikah Haritada aç
     document.getElementById('nikahMapBtn').addEventListener('click', () => {
@@ -399,14 +399,14 @@
       window.open(url, '_blank');
     });
 
-    // Kına RSVP mailto
-    //document.getElementById('kinaRsvpBtn').addEventListener('click', () => {
-      //const to = ""; // mail adresi varsa ekle
-      //const subject = encodeURIComponent(`RSVP: Kına Daveti - ${DATA.bride} & ${DATA.groom} - ${formatDateTr(DATA.dateKina)}`);
-      //const body = encodeURIComponent(`Merhaba,\n\n${DATA.bride} & ${DATA.groom} Kına davetine katılım durumumu bildirmek istiyorum.\n\nİsimler:\nKatılım durumu (Katılıyorum / Katılamıyorum):\nKişi sayısı:\nNotlar:\n\nTeşekkürler.`);
-      //const mailto = to ? `mailto:${to}?subject=${subject}&body=${body}` : `mailto:?subject=${subject}&body=${body}`;
-      //window.location.href = mailto;
-    //});
+    //Kına RSVP mailto
+    document.getElementById('kinaRsvpBtn').addEventListener('click', () => {
+      const to = ""; // mail adresi varsa ekle
+      const subject = encodeURIComponent(`RSVP: Kına Daveti - ${DATA.bride} & ${DATA.groom} - ${formatDateTr(DATA.dateKina)}`);
+      const body = encodeURIComponent(`Merhaba,\n\n${DATA.bride} & ${DATA.groom} Kına davetine katılım durumumu bildirmek istiyorum.\n\nİsimler:\nKatılım durumu (Katılıyorum / Katılamıyorum):\nKişi sayısı:\nNotlar:\n\nTeşekkürler.`);
+      const mailto = to ? `mailto:${to}?subject=${subject}&body=${body}` : `mailto:?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+    });
 
     // Nikah RSVP mailto
     document.getElementById('nikahRsvpBtn').addEventListener('click', () => {
@@ -418,18 +418,18 @@
     });
 
     // Kına Takvime ekle - Google Calendar link
-    //document.getElementById('kinaCalendarBtn').addEventListener('click', () => {
-      //const start = new Date(DATA.dateKina);
-      //const end = new Date(start.getTime() + 3*60*60*1000);
-      //function toGc(dt){
-        //const Y = dt.getUTCFullYear().toString();
-        //const M = (dt.getUTCMonth()+1).toString().padStart(2,'0');
-        //const D = dt.getUTCDate().toString().padStart(2,'0');
-        //const h = dt.getUTCHours().toString().padStart(2,'0');
-        //const m = dt.getUTCMinutes().toString().padStart(2,'0');
-        //const s = dt.getUTCSeconds().toString().padStart(2,'0');
-        //return `${Y}${M}${D}T${h}${m}${s}Z`;
-      //}
+    document.getElementById('kinaCalendarBtn').addEventListener('click', () => {
+      const start = new Date(DATA.dateKina);
+      const end = new Date(start.getTime() + 3*60*60*1000);
+      function toGc(dt){
+        const Y = dt.getUTCFullYear().toString();
+        const M = (dt.getUTCMonth()+1).toString().padStart(2,'0');
+        const D = dt.getUTCDate().toString().padStart(2,'0');
+        const h = dt.getUTCHours().toString().padStart(2,'0');
+        const m = dt.getUTCMinutes().toString().padStart(2,'0');
+        const s = dt.getUTCSeconds().toString().padStart(2,'0');
+        return `${Y}${M}${D}T${h}${m}${s}Z`;
+      }
       const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(DATA.bride + " & " + DATA.groom + " Kına")}\
 &dates=${toGc(start)}/${toGc(end)}&details=${encodeURIComponent(DATA.message)}&location=${encodeURIComponent(DATA.kinaAddress + " " + DATA.kinaVenue)}&sf=true&output=xml`;
       window.open(url,'_blank');
@@ -454,25 +454,25 @@
     });
 
     // Kına ICS dosyası indir
-    //document.getElementById('kinaDownloadIcs').addEventListener('click', () => {
-     // const start = DATA.dateKina.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
-    //  const endDate = new Date(DATA.dateKina.getTime() + 3*60*60*1000);
-    //  const end = endDate.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
-    //  const ics = [
-    //    "BEGIN:VCALENDAR",
-    //    "VERSION:2.0",
-    //    "PRODID:-//Deniz&Ebrar Kına//EN",
-    //    "BEGIN:VEVENT",
-    //    `UID:${Date.now()}@deniz-ebrar-kina.com`,
-    //    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z`,
-    //    `DTSTART:${start}`,
-     //   `DTEND:${end}`,
-     //   `SUMMARY:${DATA.bride} & ${DATA.groom} Kına`,
-    //    `DESCRIPTION:${DATA.message}`,
-    //    `LOCATION:${DATA.kinaAddress} ${DATA.kinaVenue}`,
-    //    "END:VEVENT",
-    //    "END:VCALENDAR"
-    //  ].join("\r\n");
+    document.getElementById('kinaDownloadIcs').addEventListener('click', () => {
+    const start = DATA.dateKina.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+      const endDate = new Date(DATA.dateKina.getTime() + 3*60*60*1000);
+      const end = endDate.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+      const ics = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Deniz&Ebrar Kına//EN",
+        "BEGIN:VEVENT",
+        `UID:${Date.now()}@deniz-ebrar-kina.com`,
+        `DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z`,
+        `DTSTART:${start}`,
+       `DTEND:${end}`,
+       `SUMMARY:${DATA.bride} & ${DATA.groom} Kına`,
+        `DESCRIPTION:${DATA.message}`,
+        `LOCATION:${DATA.kinaAddress} ${DATA.kinaVenue}`,
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
 
       const blob = new Blob([ics], {type:'text/calendar'});
       const url = URL.createObjectURL(blob);
@@ -553,5 +553,6 @@
 
 </body>
 </html>
+
 
 
